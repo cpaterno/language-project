@@ -22,9 +22,10 @@ This constructor is used in Milestone 2.
 - [ ] Name getter method, returns a string.
 - [ ] Trigram frequency collection comparison method, that takes in a Language object, and returns a distance represented as a double
 - [ ] Print method that prints the trigram frequency collection, and returns nothing (type void).
+- [ ] `updateFrequency()` method, type void, takes in a vector<char>, updates trigram frequency collection.  
 
 ## Other Functions
-- [ ] `findBestMatch()`, type Language, compares test data with the loaded data and returns the language class of best simlarity.
+- [ ] `findBestMatch()`, type Language, compares test data with the loaded data and returns the language class of best simlarity.  
 
 ## Files Needed 
 - [ ] `language.h` and `language.cpp` for implementation of language class.
@@ -38,6 +39,8 @@ prints 0 if success, 1 if error
 - [ ] `iostream` and `fstream`
 - [ ] `cstdlib`
 - [ ] `string`
+- [ ] `vector`
+- [ ] `map`
 
 ## Compile Script
 - [ ] For milestone 1 our executable needs to be frequencies
