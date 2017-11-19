@@ -25,7 +25,7 @@ class language {
 		std::map<int, int> getFrequencyMap();
 
 		// Calculates cosine similarity of current language and given language.
-		double computeComparison(language toCompare);
+		double computeComparison(language *toCompare);
 
 		// Prints the frequency
 		void printFrequency();
