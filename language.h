@@ -6,7 +6,8 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
-#include <stdlib>
+#include <cstdlib>
+#include <algorithm>
 #include <vector>
 
 class language {
@@ -25,20 +26,20 @@ class language {
 
 		// Calculates cosine similarity of current language and given language.
 		double computeComparison(language toCompare);
-		
+
 		// Prints the frequency
-		void printFrequency();		
+		void printFrequency();
 
 	private:
 		// Helper function that updates the local frequency based on currently read in buffer.
-		void updateFrequency(*vector<char>);
+		void updateFrequency(std::vector<char> *v);
 
 		// The trigram frequency map
-		std::map<int, int> trigrameFrequency;
-		
+		std::map<int, int> trigramFrequency;
+
 		// The name
 		std::string name;
- 
-}	
+
+};
 
 #endif
