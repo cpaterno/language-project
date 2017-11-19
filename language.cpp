@@ -9,7 +9,7 @@ language::language(std::string name, std::string text) {
       if(text[j] != '\n') {
         textChars.push_back(text[j]);
       }
-      if(textChars.size() == 2) {
+      if(textChars.size() == 3) {
         updateFrequency(&textChars);
       }
     }
@@ -30,7 +30,7 @@ language::language(std::string fileName) {
         if(ch != '\n') {
           textChars.push_back(ch);
         }
-        if(textChars.size() == 2) {
+        if(textChars.size() == 3) {
           updateFrequency(&textChars);
         }
   		}
@@ -41,6 +41,29 @@ language::language(std::string fileName) {
 		std::cerr << "Could not open file " << fileName << std::endl;
 		exit(EXIT_FAILURE);
 	}
+}
+
+
+void language::updateFrequency(std::vector<char> *v) {
+  int hash = 0;
+
+  for (int i = 0; i < 3; i++) {
+    // vector at method gets the value at index i
+    if (v->at(i) != ' ') {
+      hash += (v->at(i) - 96) * pow(27, 2-i);
+    }
+  }
+
+  // map count method checks if the value exists in the map
+  if (trigramFrequency.count(hash)) {
+    // adds 1 to an already existing key
+    trigramFrequency.find(hash)->second = trigramFrequency[hash] + 1;
+  }else{
+    trigramFrequency.insert( std::pair<int, int> (hash, 1) );
+  }
+
+  v->clear();
+
 }
 
 std::string language::getName() {
@@ -56,9 +79,5 @@ double language::computeComparison(language toCompare) {
 }
 
 void language::printFrequency() {
-
-}
-
-void language::updateFrequency(std::vector<char> *v) {
 
 }
