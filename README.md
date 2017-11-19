@@ -20,9 +20,10 @@ This constructor is used in Milestone 1.
 - [ ] Language constructor function that takes an input stream to a file. Trigram frequency is computed in constructor. 
 This constructor is used in Milestone 2.
 - [ ] Name getter method, returns a string.
+- [ ] `getFrequencyMap()` gets the frequency map.
 - [ ] Trigram frequency collection comparison method, that takes in a Language object, and returns a distance represented as a double
 - [ ] Print method that prints the trigram frequency collection, and returns nothing (type void).
-- [ ] `updateFrequency()` method, type void, takes in a `vector<char>`, updates trigram frequency collection.  
+- [ ] `updateFrequency()` method, type void, takes in a `*vector<char>`, updates trigram frequency collection.  
 
 ## Other Functions
 - [ ] `findBestMatch()`, type Language, compares test data with the loaded data and returns the language class of best simlarity.  
@@ -35,12 +36,12 @@ prints 0 if success, 1 if error
 prints 0 if success, 1 if error 
 
 ## Libraries Needed
-- [ ] `cmath`
-- [ ] `iostream` and `fstream`
-- [ ] `cstdlib`
-- [ ] `string`
-- [ ] `vector`
-- [ ] `map`
+- [x] `cmath`
+- [x] `iostream` and `fstream`
+- [x] `cstdlib`
+- [x] `string`
+- [x] `vector`
+- [x] `map`
 
 ## Compile Script
 - [ ] For milestone 1 our executable needs to be frequencies
