@@ -7,7 +7,11 @@ language::language(std::string name, std::string text) {
         std::vector<char> textChars;
         for(unsigned long j = i; j < text.length(); j++) {
             if(text[j] != '\n') {
-                textChars.push_back(text[j]);
+                if (islower(text[j]) || text[j] == ' ') {
+                    textChars.push_back(text[j]);
+                } else {
+                    throw std::runtime_error("Invalid input, a language can only contain lowercase letters or spaces");
+                }
             }
             if(textChars.size() == 3) {
                 updateFrequency(&textChars);
@@ -28,7 +32,11 @@ language::language(std::string fileName) {
             infile.seekg(i, std::ios::beg);
             while (infile.get(ch)) {
                 if(ch != '\n') {
-                    textChars.push_back(ch);
+                    if (islower(ch) || ch == ' ') {
+                        textChars.push_back(ch);
+                    } else {
+                        throw std::runtime_error("Invalid input, a language can only contain lowercase letters or spaces");
+                    }
                 }
                 if(textChars.size() == 3) {
                     updateFrequency(&textChars);

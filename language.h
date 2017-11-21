@@ -8,6 +8,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <vector>
+#include <ctype.h>
 
 class language {
 	public:
