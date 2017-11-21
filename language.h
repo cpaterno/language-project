@@ -7,7 +7,6 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-#include <algorithm>
 #include <vector>
 
 class language {

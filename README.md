@@ -42,7 +42,6 @@ prints 0 if success, 1 if error
 - [x] `string`
 - [x] `vector`
 - [x] `map`
-- [x] `algorithm`
 
 ## Compile Script
 - [ ] For milestone 1 our executable needs to be frequencies
