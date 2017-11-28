@@ -4,7 +4,7 @@
 ### vpapandrea@my.uri.edu and cpaterno@my.uri.edu
 
 ## Problems to Solve
-- [x] Compute trigram frequency vector for a given lanaguage.
+- [x] Compute trigram frequency vector for a given language.
 - [x] Compute cosine similarity between known language and unknown language
 
 ## General Solution to problems
@@ -26,13 +26,13 @@ This constructor is used in Milestone 2.
 - [x] `updateFrequency()` method, type void, takes in a `*vector<char>`, updates trigram frequency collection.  
 
 ## Other Functions
-- [ ] `findBestMatch()`, type Language, compares test data with the loaded data and returns the language class of best simlarity.  
+- [x] `findBestMatch()`, type Language, compares test data with the loaded data and returns the language class of best simlarity.  
 
 ## Files Needed
 - [x] `language.h` and `language.cpp` for implementation of language class.
-- [ ] Milestone 1: `main.cpp`, checks if user entered 1 command line argument, prints trigram frequency container,
+- [x] Milestone 1: `main.cpp`, checks if user entered 1 command line argument, prints trigram frequency container,
 prints 0 if success, 1 if error
-- [ ] Milestone 2: 'main.cpp', checks if user entered 2 or more command line arguments, prints what language the test input is most similar to,
+- [x] Milestone 2: 'main.cpp', checks if user entered 2 or more command line arguments, prints what language the test input is most similar to,
 prints 0 if success, 1 if error
 
 ## Libraries Needed
@@ -46,4 +46,6 @@ prints 0 if success, 1 if error
 ## Compile Script
 - [ ] For milestone 1 our executable needs to be frequencies
 - [ ] For milestone 2 our executable needs to be language
-- [ ] Each compile script will compile `language.cpp` and `main.cpp`. We don't need to include *.h becuase they are included in the *.cpp files.
+- [ ] Each compile script will compile `language.cpp` and `main.cpp`. We don't need to include *.h becuase they are included in the *.cpp files.*
+- [ ] Will need a flag to skip compilation of main.cpp, and only produce an object file.
+- [ ] Will need a flag for optimization (O3).
