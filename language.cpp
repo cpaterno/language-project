@@ -1,5 +1,6 @@
 #include "language.h"
 
+
 // Test constructor, calculates frequency of given "text"
 language::language(std::string name, std::string text) {
     this->name = name;
@@ -21,7 +22,9 @@ language::language(std::string name, std::string text) {
 }
 
 language::language(std::string fileName) {
-	this->name = fileName;
+    int slashIndex = fileName.rfind('/');
+    this->name = fileName.substr((slashIndex + 1));
+
     std::ifstream infile;
 	infile.open(fileName.c_str());
 	if (!infile.fail()){
@@ -112,8 +115,7 @@ double language::computeComparison(language *toCompare) {
 
     if(aSqrCount == 0 || bSqrCount == 0) {
         cosSim = 0.0;
-    }
-    else {
+    } else {
         cosSim = (abCount)/(sqrt(aSqrCount) * sqrt(bSqrCount));
     }
     return cosSim;
@@ -122,9 +124,10 @@ double language::computeComparison(language *toCompare) {
 void language::printFrequency() {
     for (int i = 0; i < 19682; i++) {
         if(trigramFrequency.count(i)) {
-            std::cout << trigramFrequency.find(i)->second << std::endl;
+            std::cout << trigramFrequency.find(i)->second << " ";
         } else {
-            std::cout << '0' << std::endl;
+            std::cout << '0' << " ";
         }
     }
+    std::cout << std::endl;
 }

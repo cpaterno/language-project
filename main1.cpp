@@ -12,10 +12,12 @@ int main(int argc, char *argv[]) {
 	}else{
 		throw std::runtime_error("Less than or more than one command line argument.");
 	}
-	
-	if (lang != nullptr) {
-		lang->printFrequency();
+
+	if (lang == nullptr) {
+		throw std::runtime_error("An error occurred loading the input string");
 	}
-	
+
+	lang->printFrequency();
+
     return 0;
 }

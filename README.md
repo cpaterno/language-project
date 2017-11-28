@@ -47,5 +47,4 @@ prints 0 if success, 1 if error
 - [ ] For milestone 1 our executable needs to be frequencies
 - [ ] For milestone 2 our executable needs to be language
 - [ ] Each compile script will compile `language.cpp` and `main.cpp`. We don't need to include *.h becuase they are included in the *.cpp files.*
-- [ ] Will need a flag to skip compilation of main.cpp, and only produce an object file.
 - [ ] Will need a flag for optimization (O3).
