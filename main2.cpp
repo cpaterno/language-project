@@ -11,11 +11,11 @@ int main(int argc, char *argv[]) {
         throw std::runtime_error("Less than 2 command line arguments");
     } else {
         std::vector<language*> v;
-        for (int i = 1; i < argc - 2; i++) {
+        for (int i = 1; i < argc - 1; i++) {
             v.push_back(new language(argv[i]));
         }
         language *best = findBestMatch(&v, new language(argv[argc - 1]));
-        std::cout << best->getName() << '\n' << std::endl;
+        std::cout << best->getName() << std::endl;
     }
     return 0;
 }

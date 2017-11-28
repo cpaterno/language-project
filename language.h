@@ -10,6 +10,7 @@
 #include <vector>
 #include <ctype.h>
 
+
 class language {
 	public:
 		// Test constructor, calculates frequency of given "text"
