@@ -92,7 +92,7 @@ double language::computeComparison(language *toCompare) {
     double bSqrCount = 0.0;
     int a;
     int b;
-    for(int i = 0; i < 19682; i++) {
+    for(int i = 0; i <= 19682; i++) {
         a = 0;
         b = 0;
 
@@ -122,7 +122,7 @@ double language::computeComparison(language *toCompare) {
 }
 
 void language::printFrequency() {
-    for (int i = 0; i < 19682; i++) {
+    for (int i = 0; i <= 19682; i++) {
         if(trigramFrequency.count(i)) {
             std::cout << trigramFrequency.find(i)->second << " ";
         } else {

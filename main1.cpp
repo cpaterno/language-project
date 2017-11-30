@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
 
 	if (argc == 2) {
 		lang = new language("input", input);
-	}else{
+	} else{
 		throw std::runtime_error("Less than or more than one command line argument.");
 	}
 
