@@ -1,0 +1,1 @@
+clang++ -O3 -o frequencies main1.cpp language.cpp
