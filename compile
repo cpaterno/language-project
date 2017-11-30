@@ -1,1 +1,1 @@
-clang++ -O3 -o frequencies main1.cpp language.cpp
+clang++ -O3 -std=c++11 -o frequencies main1.cpp language.cpp
