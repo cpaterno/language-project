@@ -115,9 +115,7 @@ double language::computeComparison(language *toCompare) {
         }
 
         abCount += (double)a * b;
-        // pow function raises the first argument to the second argument
         aSqrCount += pow((double)a, 2);
-        // pow function raises the first argument to the second argument
         bSqrCount += pow((double)b, 2);
     }
 
