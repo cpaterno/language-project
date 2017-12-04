@@ -44,7 +44,7 @@ prints 0 if success, 1 if error
 - [x] `map`
 
 ## Compile Script
-- [ ] For milestone 1 our executable needs to be frequencies
-- [ ] For milestone 2 our executable needs to be language
-- [ ] Each compile script will compile `language.cpp` and `main.cpp`. We don't need to include *.h becuase they are included in the *.cpp files.*
-- [ ] Will need a flag for optimization (O3).
+- [x] For milestone 1 our executable needs to be frequencies
+- [x] For milestone 2 our executable needs to be language
+- [x] Each compile script will compile `language.cpp` and `main.cpp`. We don't need to include *.h becuase they are included in the *.cpp files.*
+- [x] Will need a flag for optimization (O3).
