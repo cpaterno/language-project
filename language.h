@@ -10,37 +10,56 @@
 #include <vector>
 #include <ctype.h>
 
+/*
+A class to represent languages.
+A language object has two member fields: a name, which is the name of the language,
+and a trigram frequency, which is a map which holds the counts for each possible trigram in a 27 character alphabet.
+*/
 
 class language {
 	public:
-		// Test constructor, calculates frequency of given "text"
+		/*
+		Constructor with separate arguments for name and text, which is used to compute the trigram frequency
+		If `text` contains invalid characters, throws a std::runtime_error
+		*/
 		language(std::string name, std::string text);
 
-		// Main constructor, takes in fileName and computes the trigram frequency of the file text.
+		/*
+		Constructor that expects an input file with language text.
+		If the file can't be opened or the language text contains invalid characters
+		(other than newlines, which are removed),
+		throws a std::runtime_error
+		*/
 		language(std::string fileName);
 
-		// Gets the name of the language
+		/*
+		Getter methods
+		*/
 		std::string getName();
-
-		// Gets the frequency map
 		std::map<int, int> getFrequencyMap();
 
-		// Calculates cosine similarity of current language and given language.
+		/*
+		Takes in a pointer to a language to compare,
+		calculates cosine similarity of current language and language to compare,
+		returns a double representing the cosine similarity
+		*/
 		double computeComparison(language *toCompare);
 
-		// Prints the frequency
+		/*
+		Prints the language's trigramFrequency
+		*/
 		void printFrequency();
 
 	private:
-		// Helper function that updates the local frequency based on currently read in buffer.
+		/*
+		Helper that takes in a pointer to a vector, representing a pointer to a trigram.
+		Updates the local frequency based on currently read in buffer.
+		*/
 		void updateFrequency(std::vector<char> *v);
 
-		// The trigram frequency map
-		std::map<int, int> trigramFrequency;
-
-		// The name
+		/* instance variables */
 		std::string name;
-
+		std::map<int, int> trigramFrequency;
 };
 
 #endif
