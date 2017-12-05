@@ -19,13 +19,7 @@ language::language(std::string name, std::string text) {
 }
 
 language::language(std::string fileName) {
-    /*
-    rFind method finds the first instance of a given character starting from the end of the string,
-    returns the position of that character
-    */
-    int slashIndex = fileName.rfind('/');
-    this->name = fileName.substr((slashIndex + 1));
-
+    this->name = fileName;
     std::ifstream infile;
 	infile.open(fileName.c_str());
 	if (!infile.fail()){
