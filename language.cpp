@@ -2,16 +2,16 @@
 
 language::language(std::string name, std::string text) {
     this->name = name;
-    for(unsigned long i = 0; i < 3; i++) {
+    for (unsigned long i = 0; i < 3; i++) {
         std::vector<char> textChars;
-        for(unsigned long j = i; j < text.length(); j++) {
+        for (unsigned long j = i; j < text.length(); j++) {
             // islower function takes in a character and checks if that character is a lowercase letter
             if (islower(text[j]) || text[j] == ' ') {
                 textChars.push_back(text[j]);
             } else {
                 throw std::runtime_error("Invalid input, a language can only contain lowercase letters or spaces");
             }
-            if(textChars.size() == 3) {
+            if (textChars.size() == 3) {
                 updateFrequency(&textChars);
             }
         }
@@ -22,9 +22,9 @@ language::language(std::string fileName) {
     this->name = fileName;
     std::ifstream infile;
 	infile.open(fileName.c_str());
-	if (!infile.fail()){
+	if (!infile.fail()) {
 		char ch;
-        for(unsigned long i = 0; i < 3; i++) {
+        for (unsigned long i = 0; i < 3; i++) {
             std::vector<char> textChars;
             // clear method clears the iostream
             infile.clear();
@@ -37,7 +37,7 @@ language::language(std::string fileName) {
                 } else {
                     throw std::runtime_error("Invalid input, a language can only contain lowercase letters or spaces");
                 }
-                if(textChars.size() == 3) {
+                if (textChars.size() == 3) {
                     updateFrequency(&textChars);
                 }
     		}
@@ -57,74 +57,60 @@ void language::updateFrequency(std::vector<char> *v) {
         // vector at method gets the value at index i
         if (v->at(i) != ' ') {
             // pow function raises the first argument to the second argument
-            hash += (v->at(i) - 96) * pow(27, 2-i);
+            hash += (v->at(i) - 96.0) * pow(27.0, 2.0-i);
         }
     }
 
     // map count method checks if the value exists in the map
     if (trigramFrequency.count(hash)) {
         //map find method gets the value based on a given key, adds 1 to an already existing key
-        trigramFrequency.find(hash)->second = trigramFrequency[hash] + 1;
-    } else{
+        trigramFrequency.find(hash)->second = trigramFrequency[hash] + 1.0;
+    } else {
         // map insert method creates a new key pair value pair to the map
-        trigramFrequency.insert( std::pair<int, int> (hash, 1) );
+        trigramFrequency.insert( std::pair<int, long double> (hash, 1.0) );
     }
     // vector clear method, clears the vector until it is empty
     v->clear();
-
 }
 
 std::string language::getName() {
     return name;
 }
 
-std::map<int, int> language::getFrequencyMap() {
+std::map<int, long long> language::getFrequencyMap() {
     return trigramFrequency;
 }
 
-double language::computeComparison(language *toCompare) {
-    std::map<int,int> map2 = toCompare->getFrequencyMap();
-    double cosSim = 0.0;
-    double abCount = 0.0;
-    double aSqrCount = 0.0;
-    double bSqrCount = 0.0;
-    int a;
-    int b;
-    for(int i = 0; i <= 19682; i++) {
-        a = 0;
-        b = 0;
+long double language::computeComparison(language *toCompare) {
+    std::map<int,long long> comparisonLanguage = toCompare->getFrequencyMap();
+    unsigned long long numerator = 0.0;
+    unsigned long long a2 = 0.0;
+    unsigned long long b2 = 0.0;
+    for (int i = 0; i <= 19682; i++) {
         // map count method checks if the value exists in the map
-        if(trigramFrequency.count(i)) {
-            // map find method gets the value based on a given key
-            a = trigramFrequency.find(i)->second;
-        } else {
-            a = 0;
+        if (trigramFrequency.count(i) && comparisonLanguage.count(i)) {
+            // map count method checks if the value exists in the map
+            numerator += trigramFrequency.find(i)->second * comparisonLanguage.find(i)->second;
         }
         // map count method checks if the value exists in the map
-        if(map2.count(i)) {
-            // map find method gets the value based on a given key
-            b = map2.find(i)->second;
-        } else {
-            b = 0;
+        if (trigramFrequency.count(i)) {
+            // map count method checks if the value exists in the map
+            a2 += (unsigned long long)pow((unsigned long long)trigramFrequency.find(i)->second, (unsigned long long)2.0);
         }
-
-        abCount += (double)a * b;
-        aSqrCount += pow((double)a, 2);
-        bSqrCount += pow((double)b, 2);
+        // map count method checks if the value exists in the map
+        if (comparisonLanguage.count(i)) {
+            // map count method checks if the value exists in the map
+            b2 += (unsigned long long)pow((unsigned long long)comparisonLanguage.find(i)->second, (unsigned long long)2.0);
+        }
     }
-
-    if(aSqrCount == 0 || bSqrCount == 0) {
-        cosSim = 0.0;
-    } else {
-        cosSim = (abCount)/(sqrt(aSqrCount) * sqrt(bSqrCount));
-    }
-    return cosSim;
+    if (a2 == 0 || b2 == 0) return 0.0;
+    return numerator/(sqrt(a2) * sqrt(b2));
 }
 
 void language::printFrequency() {
     for (int i = 0; i <= 19682; i++) {
         // map count method checks if the value exists in the map
-        if(trigramFrequency.count(i) && i == 19682) {
+        if (trigramFrequency.count(i) && i == 19682) {
             // map find method gets the value based on a given key
             std::cout << trigramFrequency.find(i)->second;
         // map count method checks if the value exists in the map

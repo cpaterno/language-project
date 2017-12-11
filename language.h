@@ -36,14 +36,14 @@ class language {
 		Getter methods
 		*/
 		std::string getName();
-		std::map<int, int> getFrequencyMap();
+		std::map<int, long long> getFrequencyMap();
 
 		/*
 		Takes in a pointer to a language to compare,
 		calculates cosine similarity of current language and language to compare,
 		returns a double representing the cosine similarity
 		*/
-		double computeComparison(language *toCompare);
+		long double computeComparison(language *toCompare);
 
 		/*
 		Prints the language's trigramFrequency
@@ -59,7 +59,7 @@ class language {
 
 		/* instance variables */
 		std::string name;
-		std::map<int, int> trigramFrequency;
+		std::map<int, long long> trigramFrequency;
 };
 
 #endif
