@@ -27,9 +27,9 @@ int main(int argc, char *argv[]) {
  * @param test Pointer to language class that needs to be compared to the trianing data.
  */
 language* findBestMatch(std::vector<language*> *v, language *test) {
-	double max = 0.0;
-	double bestLanguage = 0;
-	double tempComparison = 0.0;
+	long double max = 0.0;
+	long double bestLanguage = 0;
+	long double tempComparison = 0.0;
 
 	// Glorified max function.
 	for (int languageIndex = 0; languageIndex < v->size(); languageIndex ++) {
