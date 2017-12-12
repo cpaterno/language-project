@@ -91,20 +91,23 @@ long double language::computeComparison(language *toCompare) {
   for (int i = 0; i <= 19682; i++) {
     // map count method checks if the value exists in the map
     if (trigramFrequency.count(i) && comparisonLanguage.count(i)) {
-      // map count method checks if the value exists in the map
+        // map find method gets the value based on a given key, adds 1 to an already
+        // existing key
       numerator +=
           trigramFrequency.find(i)->second * comparisonLanguage.find(i)->second;
     }
     // map count method checks if the value exists in the map
     if (trigramFrequency.count(i)) {
-      // map count method checks if the value exists in the map
+        // map find method gets the value based on a given key, adds 1 to an already
+        // existing key
       a2 += (unsigned long long)pow(
           (unsigned long long)trigramFrequency.find(i)->second,
           (unsigned long long)2.0);
     }
     // map count method checks if the value exists in the map
     if (comparisonLanguage.count(i)) {
-      // map count method checks if the value exists in the map
+        // map find method gets the value based on a given key, adds 1 to an already
+        // existing key
       b2 += (unsigned long long)pow(
           (unsigned long long)comparisonLanguage.find(i)->second,
           (unsigned long long)2.0);
