@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
  *
  * @param v Pointer to vector of training languages
  * @param test Pointer to language class that needs to be compared to the
- * trianing data.
+ * training data.
  */
 language *findBestMatch(std::vector<language *> *v, language *test) {
   long double max = 0.0;
